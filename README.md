@@ -105,4 +105,20 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
 # Part 8 (Confirm Internet connection)
 - In Windows 10, open the command line  
 - use command _ipconfig_ to confirm default gateway is correct  
-- use command _ping www.google.com_ to confirm internet connection  
+- use command _ping www.google.com_ to confirm internet connection
+#
+# Part 9 (Generate users using Powershell)
+- From Domain Controller, Access the Internet and download link to compressed file
+- Extract contents to Desktop
+- From Start menu, Open 'Windows Powerhell ISE' as an administrator (right-click Powershell)
+- Open the Powershell script "CREATE_USERS.ps1"
+  - _Because the script is not digitally signed, it cannot run (Security feature)_
+- Enter the prompt "Set-ExecutionPolicy unrestricted" and select 'Yes to All'
+  - _Allows for all scripts to be run_
+- Change directory in PowerShell to where the script is stored
+  - Enter cd C:\users\A_rturnquest\desktop\AD_PS-master
+- Click 'Run' in Powershell window
+  - _1000 users will be generated_
+- Open "Active Directory Users and Computers"
+- Select "Users" folder and confirm names have been added.
+
