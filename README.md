@@ -121,4 +121,14 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
   - _1000 users will be generated_
 - Open "Active Directory Users and Computers"
 - Select "Users" folder and confirm names have been added.
+#
+# Reflection  
+This lab initially was started a while back but I had one issue. The problem was when I was installing Windows Server 2019, I could not figure out how to get out of the command-line environment. After a few weeks and research, I was able to find the solution, which was simply checking the box "skip unattended installation". This project was definitely a learning experience and went smoothly. One hiccup I had was not using enough storage when attempting to install Windows Server 2019. This resulted in no install. This lab allowed me to understand how the domain controller also acts as DNS server and DHCP server. I was also exposed to PowerShell and I look to practice more with coding in PowerShell.
+#
+# Skills Learned:  
+- Domain Controller setup
+- Active Directory Installation
+- Windows Server 2019 basics
+- Basic enterprise network structure
+
 
