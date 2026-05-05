@@ -1,4 +1,5 @@
 # Active-Directory-Simulation
+
 # Lab Overview:
 Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with RAS,DHCP and NAT, automate users using PowerShell Script, and Install Windows 10 as a client on virtual network
 
@@ -16,8 +17,13 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
   - Storage - 20GB  
   - Memory  -  4GB  
   - Cores   -  2 cores  
-  - Network Adapters (2)  
-- Install "Guess Editions"  
+  - Network Adapters (NAT and Internal)
+  - Select "Windows Server 2019 Standard edition (Desktop Experience)"
+  - Select "Custom Install"
+  - Password: _Password1_
+- Install "Guess Editions"
+  - Mount/Insert the "VirtualBox Guest Additions.iso"
+  - Open the VirtualBox Guest Additions.iso via MyPC and run the "VBGuestAddtionsamd64.exe"
 #
 # Part 2 (IP Addressing)
 - Open Server 2019 Virtual machine
@@ -41,14 +47,16 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
   - Set Directory Services Restore Password: _Password1_
   - Install and Restart
 - Create dedicated Admin Account
-  - Open "Active Directory Users and Computers"
+  - In Server Manager, Select Tools, and Open "Active Directory Users and Computers"
   - Add a Organization Unit to the mydomain.com folder.
   - Name the OU: Admins
   - Create a new user inside Admin Group folder
     - Name - _Rudy Turnquest_
     - user login - _A_rturnquest_
     - password - _Password1_
+    - (_select password never expires for the sake of the lab_)
 - Add the Account to "Domain Admins" to make Domain Account
+  - Right-click the user just created
   - Go to "Properties" and select "Member Of"
   - Add and create "_Domain Admins_" group
   - Select and add user to group
@@ -67,7 +75,7 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
 - Finish
 #
 # Part 5 (Install DHCP)
-- In Server Manager, add "DHCP" role
+- In Server Manager, add "DHCP server" role
 - In Server Manager, Open the Tools menu and select "DHCP"
 - In DHCP window, right-click the IPV4 icon under the domain menu and select "New Scope..."
 - Define Scoop
@@ -86,11 +94,14 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
 - _A Green check mark should appear to indicate that DHCP is up_
 #
 # Part 6 (Install Windows 10)
+- Name VM - Client1
 - Storage - 20GB
 - Memory  -  4GB
 - Cores   -  2 cores
 - **In Virtual Box menu, Change the network adapter from "NAT" to "Internal Network"**
 - Install "Windows 10 Pro" from options menu
+  - Select "_I don't have a product key_"
+  - Select custom install and continue through to end
 #
 # Part 7 (Rename and Add Client to Domain)
 - In Windows 10, right-click start menu and select "system"
@@ -100,6 +111,7 @@ Install Windows Server 2019 inside VirtualBox, Create a Domain Controller with R
   - Domain - mydomain.com
   - Select "OK"
 - Use the admin account when asked about permissions for the domain
+- (After adding to domain, you should receive a prompt "_Welcome to the mydomain domain_"
 - Select "OK" and restart
 #
 # Part 8 (Confirm Internet connection)
